@@ -75,28 +75,31 @@ if (isset($_SESSION['member_login']) == false) {
                             break;
                             //もうデータが無ければ、ループから脱出
                         }
+                        print '</br></br>';
                         print '<a href="shop_product.php?procode=' . $rec['code'] . '">';
                         // リンクを設置
                         print $rec['name'];
                         print '</a>';
                     ?>
                 </h3>
-                        <p><img src="img/img_cake.jpg" alt="">
-                            カフェロクナナのケーキは毎日手づくり。<br>
-                            季節ごとにいろんな味を楽しめます。</p>
-                        <?php
+                <br>
+                <p>
+                    カフェロクナナのケーキは毎日手づくり。<br>
+                    季節ごとにいろんな味を楽しめます。</p>
+                <?php
                         print '</br>';
-                        ?>
+                ?>
                 <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <?php print $rec['price'] . '円'; ?>
                 </p>
+                <br>
                 <h3>
                 <?php
-                        print '</br></br>';
+                        print '</br>';
                     }
                 ?>
                 </h3>
-
+                <p><img src="img/img_cake.jpg" style="float: right;" alt="" align="right"></p>
 
             <?php
                 print '</br>';
