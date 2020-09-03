@@ -78,7 +78,7 @@ a:hover {
     color: #6a8125;
     padding-left: 16px;
     margin-left: 15px;
-    clear: right;
+    clear: both;
     display: inline-block;
 }
 
@@ -86,6 +86,7 @@ a:hover {
     padding-right: 15px;
     padding-left: 15px;
     display: inline-block;
+    clear: both;
 }
 
 #content p img {
