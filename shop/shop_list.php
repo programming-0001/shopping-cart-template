@@ -65,40 +65,50 @@ if (isset($_SESSION['member_login']) == false) {
 
                 // print '商品一覧<br/><br/>';
             ?>
+                <div class="parent">
+                    <div class="child1">
+                        <h3>
+                            <br><br>
+                            <?php
+                            while (true) {
+                                $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+                                //$stmtから1レコード取り出す
+                                if ($rec == false) {
+                                    break;
+                                    //もうデータが無ければ、ループから脱出
+                                }
+                                print '<a href="shop_product.php?procode=' . $rec['code'] . '">';
+                                // リンクを設置
+                                print $rec['name'];
+                                print '</a>';
+                            ?>
+                        </h3>
+                        <p>
+                            <br>
+                            カフェロクナナのケーキは毎日手づくり。<br>
+                            季節ごとにいろんな味を楽しめます。<br><br><br>
+                            <div style="margin-left: 150px;">
+                                <?php print $rec['price'] . '円'; ?>
+                            </div>
+                        </p>
+                        <br><br>
 
-                <h3>
-                    <?php
-                    while (true) {
-                        $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-                        //$stmtから1レコード取り出す
-                        if ($rec == false) {
-                            break;
-                            //もうデータが無ければ、ループから脱出
-                        }
-                        print '<a href="shop_product.php?procode=' . $rec['code'] . '">';
-                        // リンクを設置
-                        print $rec['name'];
-                        print '</a>';
-                    ?>
-                </h3>
-                <p>
-                    カフェロクナナのケーキは毎日手づくり。<br>
-                    季節ごとにいろんな味を楽しめます。<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <?php print $rec['price'] . '円'; ?>
-                </p>
-                <h3>
-                <?php
-                    }
-                ?>
-                </h3>
-                <div style="float: right;">
-                    <p><img src="img/img_cake.jpg" style="float: right;" alt="" align="right"></p>
-                </div>
-                <div style="float: right;">
-                    <p><img src="img/img_cake.jpg" style="float: right;" alt="" align="right"></p>
-                </div>
+                        <h3>
+                        <?php
+                            }
+                        ?>
+                        </h3>
+                    </div>
 
+
+                    <div class="child2" style="">
+                        <img src="img/img_cake.jpg" style="margin-top: 50px;" alt="">
+                        <img src="img/img_cake.jpg" style="margin-top: 80px;" alt="">
+                    </div>
+                    <!-- <div style="float: right;">
+                <p><img src="img/img_cake.jpg" style="float: right;" alt="" align="right"></p>
+                </div> -->
+                </div>
 
             <?php
                 print '</br>';
@@ -109,14 +119,14 @@ if (isset($_SESSION['member_login']) == false) {
             }
             ?>
 
-            <h3>おいしいケーキでほっと一息</h3>
+            <!-- <h3>おいしいケーキでほっと一息</h3>
             <p>
                 カフェロクナナのケーキは毎日手づくり。<br>
                 季節ごとにいろんな味を楽しめます。</p>
             <h3>まるでリビングにいるような気分</h3>
             <p><img src="img/img_living.jpg" alt="">
                 あかるい光が差し込む店内は、居心地バツグン。<br>
-                じぶんの家にいるような気分でお過ごしください。</p>
+                じぶんの家にいるような気分でお過ごしください。</p> -->
             <div id="footer">
                 <p>Copyright © 2012 cafe67 All Rights Reserved.</p>
             </div>
