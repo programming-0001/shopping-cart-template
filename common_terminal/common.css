@@ -1,7 +1,6 @@
 .a {
 
 
-
     /* 縦横比の固定 */
     width: 100%;
     height: auto;
@@ -35,5 +34,20 @@
     background-size: 15px 15px;
 
 
+}
 
+
+
+/* コンテンツを左右に分ける */
+.parent {
+    display: flex;
+}
+.child1 {
+    flex: 2;
+    text-align: center;
+}
+.child2 {
+    flex: 1;
+    text-align: center;
+    margin-right: 30px;
 }

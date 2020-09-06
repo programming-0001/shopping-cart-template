@@ -102,8 +102,8 @@ if (isset($_SESSION['member_login']) == false) {
 
 
                     <div class="child2" style="">
-                        <img src="img/img_cake.jpg" style="margin-top: 50px;" alt="">
-                        <img src="img/img_cake.jpg" style="margin-top: 80px;" alt="">
+                        <img src="img/img_cake.jpg" style="margin-top: 60px;" alt="">
+                        <img src="img/img_cake.jpg" style="margin-top: 70px;" alt="">
                     </div>
                     <!-- <div style="float: right;">
                 <p><img src="img/img_cake.jpg" style="float: right;" alt="" align="right"></p>
