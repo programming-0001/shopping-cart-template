@@ -3,13 +3,31 @@
 <head>
 <meta charset="UTF-8">
 <title></title>
+<link rel="stylesheet" href="css/shop.css" media="all">
 </head>
 <body>
 
-    お客様情報を入力してください。<br />
-    <br />
-    <!-- 以下に「form」（意味を持たせた空間）の機能を作っていく -->
-    <form method="post" action="shop_form_check.php">
+<div id="container">
+    <div id="header" style="">
+        <!-- <h1><a href="http://www.67-cafe.com/" target="_blank"><img src="img/logo.png" alt="cafe67"></a></h1> -->
+        <h1>青汁屋</h1>
+    </div>
+
+    <div id="menu">
+        <ul>
+            <li><a href="shop_list.php">商品一覧</a></li>
+            <li><a href="shop_cartlook.php">カートを見る</a></li>
+            <li><a href="mailto:info@example.com">お問い合わせ</a></li>
+        </ul>
+    </div>
+
+    <div id="content">
+
+
+        お客様情報を入力してください。<br />
+        <br />
+        <!-- 以下に「form」（意味を持たせた空間）の機能を作っていく -->
+        <form method="post" action="shop_form_check.php">
         お名前<br />
         <input type="text" name="onamae" style="width:200px"><br />
         メールアドレス<br />
@@ -52,7 +70,14 @@
 
         <input type="button" onclick="history.back()" value="戻る">
         <input type="submit" value="OK"><br />
-    </form>
+        </form>
 
+    </div>
+
+    <div id="footer">
+        <p>Copyright © 2012 cafe67 All Rights Reserved.</p>
+    </div>
+
+    </div>
 </body>
 </html>

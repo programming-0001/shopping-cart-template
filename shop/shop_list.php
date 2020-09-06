@@ -6,7 +6,7 @@ session_regenerate_id(true);
 if (isset($_SESSION['member_login']) == false) {
     print 'ようこそゲスト様　';
     print '<a href="member_login.html">会員ログイン</a><br />';
-    // print '<br />';
+    print '<br />';
 } else {
     print 'ようこそ';
     print $_SESSION['member_name'];
@@ -22,7 +22,7 @@ if (isset($_SESSION['member_login']) == false) {
 <head>
     <meta charset="UTF-8">
     <title>サンプル</title>
-    <link rel="stylesheet" href="css/shop_list.css" media="all">
+    <link rel="stylesheet" href="css/shop.css" media="all">
 </head>
 
 <body>
@@ -55,7 +55,7 @@ if (isset($_SESSION['member_login']) == false) {
                 $dbh->query('SET NAMES utf8');
 
                 //<--2.SQL文指令-->
-                $sql = 'SELECT code,name,price FROM mst_product WHERE 1';
+                $sql = 'SELECT code,name,price,image,detail FROM mst_product WHERE 1';
                 //「商品の名前を全て取り出せ」
                 $stmt = $dbh->prepare($sql);
                 $stmt->execute();
@@ -85,8 +85,9 @@ if (isset($_SESSION['member_login']) == false) {
                         </h3>
                         <p>
                             <br>
-                            カフェロクナナのケーキは毎日手づくり。<br>
-                            季節ごとにいろんな味を楽しめます。<br><br><br>
+                            <?php print nl2br($rec['detail']); ?>
+                            <!-- 改行をブラウザに反映 -->
+
                             <div style="margin-left: 150px;">
                                 <?php print $rec['price'] . '円'; ?>
                             </div>
@@ -102,12 +103,14 @@ if (isset($_SESSION['member_login']) == false) {
 
 
                     <div class="child2" style="">
-                        <img src="img/img_cake.jpg" style="margin-top: 60px;" alt="">
-                        <img src="img/img_cake.jpg" style="margin-top: 70px;" alt="">
+                        <?php
+                        $img=imagecreatefromstring($rec['image']);
+                        header('Content-Type: image/jpeg');
+                        imagejpeg($img);
+                        ?>
+                        <!-- <img src="img/img_cake.jpg" style="margin-top: 60px;" alt="">
+                        <img src="img/img_cake.jpg" style="margin-top: 70px;" alt=""> -->
                     </div>
-                    <!-- <div style="float: right;">
-                <p><img src="img/img_cake.jpg" style="float: right;" alt="" align="right"></p>
-                </div> -->
                 </div>
 
             <?php
@@ -127,11 +130,13 @@ if (isset($_SESSION['member_login']) == false) {
             <p><img src="img/img_living.jpg" alt="">
                 あかるい光が差し込む店内は、居心地バツグン。<br>
                 じぶんの家にいるような気分でお過ごしください。</p> -->
-            <div id="footer">
-                <p>Copyright © 2012 cafe67 All Rights Reserved.</p>
-            </div>
 
         </div>
+
+        <div id="footer">
+            <p>Copyright © 2012 cafe67 All Rights Reserved.</p>
+        </div>
+
     </div>
 
 </body>

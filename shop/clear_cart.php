@@ -16,12 +16,37 @@ if (isset($_COOKIE[session_name()]) == true) {
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="css/shop.css" media="all">
 </head>
 
 <body>
 
-    カートを空にしました。<br />
+    <div id="container">
+        <div id="header" style="">
+            <!-- <h1><a href="http://www.67-cafe.com/" target="_blank"><img src="img/logo.png" alt="cafe67"></a></h1> -->
+            <h1>青汁屋</h1>
+        </div>
 
+        <div id="menu">
+            <ul>
+                <li><a href="shop_list.php">商品一覧</a></li>
+                <li><a href="shop_cartlook.php">カートを見る</a></li>
+                <li><a href="mailto:info@example.com">お問い合わせ</a></li>
+            </ul>
+        </div>
+
+        <div id="content">
+
+
+            カートを空にしました。<br />
+
+        </div>
+
+        <div id="footer">
+            <p>Copyright © 2012 cafe67 All Rights Reserved.</p>
+        </div>
+
+    </div>
 </body>
 
 </html>
