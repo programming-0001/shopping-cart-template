@@ -81,6 +81,8 @@ if (isset($_SESSION['member_login']) == false) {
                                 // リンクを設置
                                 print $rec['name'];
                                 print '</a>';
+
+
                             ?>
                         </h3>
                         <p>
@@ -103,13 +105,9 @@ if (isset($_SESSION['member_login']) == false) {
 
 
                     <div class="child2" style="">
-                        <?php
-                        $img=imagecreatefromstring($rec['image']);
-                        header('Content-Type: image/jpeg');
-                        imagejpeg($img);
-                        ?>
-                        <!-- <img src="img/img_cake.jpg" style="margin-top: 60px;" alt="">
-                        <img src="img/img_cake.jpg" style="margin-top: 70px;" alt=""> -->
+
+                        <img src="img/img_cake.jpg" style="margin-top: 60px;" alt="">
+                        <img src="img/img_cake.jpg" style="margin-top: 70px;" alt="">
                     </div>
                 </div>
 
