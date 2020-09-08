@@ -40,87 +40,88 @@ if (isset($_SESSION['member_login']) == false) {
             </ul>
         </div>
         <div id="content">
-            <h2>商品一覧</h2>
 
-            <?php
+                <h2>商品一覧</h2>
 
-            try {
+                <?php
 
-                //<--1.データベースに接続（PDO）-->
-                //pro_add_doneと同じ
-                $dsn = 'mysql:dbname=shop;host=localhost';
-                $user = 'root';
-                $password = '';
-                $dbh = new PDO($dsn, $user, $password);
-                $dbh->query('SET NAMES utf8');
+                try {
 
-                //<--2.SQL文指令-->
-                $sql = 'SELECT code,name,price,image,detail FROM mst_product WHERE 1';
-                //「商品の名前を全て取り出せ」
-                $stmt = $dbh->prepare($sql);
-                $stmt->execute();
+                    //<--1.データベースに接続（PDO）-->
+                    //pro_add_doneと同じ
+                    $dsn = 'mysql:dbname=shop;host=localhost';
+                    $user = 'root';
+                    $password = '';
+                    $dbh = new PDO($dsn, $user, $password);
+                    $dbh->query('SET NAMES utf8');
 
-                //<--3.データベースから切断-->
-                $dbh = null;
+                    //<--2.SQL文指令-->
+                    $sql = 'SELECT code,name,price,image,detail FROM mst_product WHERE 1';
+                    //「商品の名前を全て取り出せ」
+                    $stmt = $dbh->prepare($sql);
+                    $stmt->execute();
 
-                // print '商品一覧<br/><br/>';
-            ?>
-                <div class="parent">
-                    <div class="child1">
-                        <h3>
+                    //<--3.データベースから切断-->
+                    $dbh = null;
+
+                    // print '商品一覧<br/><br/>';
+                ?>
+                    <div class="parent">
+                        <div class="child1">
+                            <h3>
+                                <br><br>
+                                <?php
+                                while (true) {
+                                    $rec = $stmt->fetch(PDO::FETCH_ASSOC);
+                                    //$stmtから1レコード取り出す
+                                    if ($rec == false) {
+                                        break;
+                                        //もうデータが無ければ、ループから脱出
+                                    }
+                                    print '<a href="shop_product.php?procode=' . $rec['code'] . '">';
+                                    // リンクを設置
+                                    print $rec['name'];
+                                    print '</a>';
+
+
+                                ?>
+                            </h3>
+                            <p>
+                                <br>
+                                <?php print nl2br($rec['detail']); ?>
+                                <!-- 改行をブラウザに反映 -->
+
+                                <div style="margin-left: 150px;">
+                                    <?php print $rec['price'] . '円'; ?>
+                                </div>
+                            </p>
                             <br><br>
+
+                            <h3>
                             <?php
-                            while (true) {
-                                $rec = $stmt->fetch(PDO::FETCH_ASSOC);
-                                //$stmtから1レコード取り出す
-                                if ($rec == false) {
-                                    break;
-                                    //もうデータが無ければ、ループから脱出
                                 }
-                                print '<a href="shop_product.php?procode=' . $rec['code'] . '">';
-                                // リンクを設置
-                                print $rec['name'];
-                                print '</a>';
-
-
                             ?>
-                        </h3>
-                        <p>
-                            <br>
-                            <?php print nl2br($rec['detail']); ?>
-                            <!-- 改行をブラウザに反映 -->
+                            </h3>
+                        </div>
 
-                            <div style="margin-left: 150px;">
-                                <?php print $rec['price'] . '円'; ?>
-                            </div>
-                        </p>
-                        <br><br>
 
-                        <h3>
-                        <?php
-                            }
-                        ?>
-                        </h3>
+                        <div class="child2" style="">
+
+                            <img src="img/img_cake.jpg" style="margin-top: 60px;" alt="">
+                            <img src="img/img_cake.jpg" style="margin-top: 70px;" alt="">
+                        </div>
                     </div>
 
+                <?php
+                    print '</br>';
+                    // print '<a href="shop_cartlook.php">カートを見る</a><br />';
+                } catch (Exception $e) {
+                    print 'ただいま障害により大変ご迷惑をお掛けしております。';
+                    exit();
+                }
+                ?>
 
-                    <div class="child2" style="">
-
-                        <img src="img/img_cake.jpg" style="margin-top: 60px;" alt="">
-                        <img src="img/img_cake.jpg" style="margin-top: 70px;" alt="">
-                    </div>
-                </div>
-
-            <?php
-                print '</br>';
-                // print '<a href="shop_cartlook.php">カートを見る</a><br />';
-            } catch (Exception $e) {
-                print 'ただいま障害により大変ご迷惑をお掛けしております。';
-                exit();
-            }
-            ?>
-
-            <!-- <h3>おいしいケーキでほっと一息</h3>
+                <!-- <h3>おいしいケーキでほっと一息</h3>
             <p>
                 カフェロクナナのケーキは毎日手づくり。<br>
                 季節ごとにいろんな味を楽しめます。</p>

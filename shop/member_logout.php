@@ -35,15 +35,18 @@ if (isset($_COOKIE[session_name()]) == true) {
         </div>
 
         <div id="content">
-
-
-            ログアウトしました。<br />
-            <br />
-            <a href="shop_list.php">商品一覧へ</a>
+            <div id="content-inside" style="padding: 20px;">
 
 
 
+                ログアウトしました。<br />
+                <br />
+                <a href="shop_list.php">商品一覧へ</a>
 
+
+
+
+            </div>
         </div>
 
         <div id="footer">

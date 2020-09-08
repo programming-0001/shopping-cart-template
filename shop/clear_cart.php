@@ -36,10 +36,13 @@ if (isset($_COOKIE[session_name()]) == true) {
         </div>
 
         <div id="content">
+            <div id="content-inside" style="padding: 20px;">
 
 
-            カートを空にしました。<br />
 
+                カートを空にしました。<br />
+
+            </div>
         </div>
 
         <div id="footer">

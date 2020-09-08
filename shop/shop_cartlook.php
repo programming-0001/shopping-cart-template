@@ -41,7 +41,8 @@ if (isset($_SESSION['member_login']) == false) {
             </ul>
         </div>
 
-        <div id="content">
+        <div id="content" style="">
+
 
 
             <?php
@@ -103,47 +104,52 @@ if (isset($_SESSION['member_login']) == false) {
 
             ?>
 
-            カートの中身<br />
-            <br />
+            <h2>カートの中身</h2><br />
 
-            <table border="1">
-                <tr>
-                    <td>商品</td>
-                    <td>商品画像</td>
-                    <td>価格</td>
-                    <td>数量</td>
-                    <td>小計</td>
-                    <td>削除</td>
-                </tr>
+            <div id="content-inside" style="padding: 20px;">
 
-                <form method="post" action="quantity_change.php">
-                    <?php
-                    for ($i = 0; $i < $max; $i++) {
-                    ?>
-                        <tr>
-                            <td><?php print $pro_name[$i]; ?></td>
-                            <td><?php print $pro_image[$i]; ?></td>
-                            <td><?php print $pro_price[$i]; ?>円</td>
-                            <td><input type="text" name="quantity<?php print $i; ?>" value="<?php print $quantity[$i]; ?>"></td>
-                            <td><?php print $pro_price[$i] * $quantity[$i]; ?>円</td>
-                            <td><input type="checkbox" name="delete<?php print $i; ?>"></td>
-                        </tr>
-                    <?php
-                    }
-                    ?>
-            </table>
-            <input type="hidden" name="max" value="<?php print $max; ?>">
-            <input type="submit" value="数量変更"><br />
-            <input type="button" onclick="history.back()" value="戻る">
-            </form>
-            <br />
-            <a href="shop_form.html">ご購入手続きへ進む</a><br />
+                <table border="1">
+                    <tr>
+                        <td>商品</td>
+                        <td>商品画像</td>
+                        <td>価格</td>
+                        <td>数量</td>
+                        <td>小計</td>
+                        <td>削除</td>
+                    </tr>
 
-            <?php
-            if (isset($_SESSION['member_login']) == true) {
-                print '<a href="shop_kantan_check.php">会員かんたん注文へ進む</a><br />';
-            }
-            ?>
+                    <form method="post" action="quantity_change.php">
+                        <?php
+                        for ($i = 0; $i < $max; $i++) {
+                        ?>
+                            <tr>
+                                <td><?php print $pro_name[$i]; ?></td>
+                                <td><?php print $pro_image[$i]; ?></td>
+                                <td><?php print $pro_price[$i]; ?>円</td>
+                                <td><input type="text" name="quantity<?php print $i; ?>" value="<?php print $quantity[$i]; ?>"></td>
+                                <td><?php print $pro_price[$i] * $quantity[$i]; ?>円</td>
+                                <td><input type="checkbox" name="delete<?php print $i; ?>"></td>
+                            </tr>
+                        <?php
+                        }
+                        ?>
+                </table>
+                <br />
+                <input type="hidden" name="max" value="<?php print $max; ?>">
+                ※数量を変更する場合は、数字を変更した上で、下のボタンを押してください<br />
+                <input type="submit" value="数量変更">
+                <input type="submit" value="削除" align="right"><br /><br />
+                <input type="button" onclick="history.back()" value="戻る">
+                </form>
+                <br /><br /><br />
+                <a href="shop_form.html">ご購入手続きへ進む　>></a><br />
+
+                <?php
+                if (isset($_SESSION['member_login']) == true) {
+                    print '<a href="shop_kantan_check.php">会員かんたん注文へ進む　>></a><br /><br /><br />';
+                }
+                ?>
+            </div>
 
         </div>
 

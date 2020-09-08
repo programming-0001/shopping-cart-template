@@ -42,42 +42,45 @@ if (isset($_SESSION['member_login']) == false) {
         </div>
 
         <div id="content">
+            <div id="content-inside" style="padding: 20px;">
 
 
-            <?php
 
-            try {
+                <?php
 
-                $pro_code = $_GET['procode'];
-                //入力枠からではない為、サニタイジングは不必要
+                try {
 
-                if (isset($_SESSION['cart']) == true) {
-                    $cart = $_SESSION['cart'];
-                    $quantity = $_SESSION['quantity'];
-                    if (in_array($pro_code, $cart) == true) {
-                        print 'その商品はすでにカートに入っています。<br />';
-                        print '<a href="shop_list.php">商品一覧へ戻る</a>';
-                        exit();
+                    $pro_code = $_GET['procode'];
+                    //入力枠からではない為、サニタイジングは不必要
+
+                    if (isset($_SESSION['cart']) == true) {
+                        $cart = $_SESSION['cart'];
+                        $quantity = $_SESSION['quantity'];
+                        if (in_array($pro_code, $cart) == true) {
+                            print 'その商品はすでにカートに入っています。<br />';
+                            print '<a href="shop_list.php">商品一覧へ戻る</a>';
+                            exit();
+                        }
                     }
+                    $cart[] = $pro_code;
+                    $quantity[] = 1;
+                    $_SESSION['cart'] = $cart;
+                    $_SESSION['quantity'] = $quantity;
+                    //$_SESSION => データを入れておけば、どのページからでもそのデータが見れる
+
+                } catch (Exception $e) {
+                    print 'ただいま障害により大変ご迷惑をお掛けしております。';
+                    exit();
                 }
-                $cart[] = $pro_code;
-                $quantity[] = 1;
-                $_SESSION['cart'] = $cart;
-                $_SESSION['quantity'] = $quantity;
-                //$_SESSION => データを入れておけば、どのページからでもそのデータが見れる
 
-            } catch (Exception $e) {
-                print 'ただいま障害により大変ご迷惑をお掛けしております。';
-                exit();
-            }
+                ?>
 
-            ?>
-
-            カートに追加しました。<br />
-            <br />
-            <a href="shop_list.php">商品一覧に戻る</a>
+                カートに追加しました。<br />
+                <br />
+                <a href="shop_list.php">商品一覧に戻る</a>
 
 
+            </div>
         </div>
 
         <div id="footer">
