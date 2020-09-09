@@ -61,7 +61,7 @@ if (isset($_SESSION['member_login']) == false) {
 
                     print $onamae . '様<br/>';
                     print 'ご注文ありがとうございました。<br/>';
-                    print $email . 'にメールをお送りしましたのでご確認ください。<br/>';
+                    print $email . 'にメールをお送りしましたのでご確認ください。<br/><br/>';
                     print '商品は以下の住所に発送させていただきます。<br/>';
                     print $postal1 . '-' . $postal2 . '<br/>';
                     print $address . '<br/>';
