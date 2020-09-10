@@ -57,8 +57,8 @@ if (isset($_SESSION['member_login']) == false) {
                         $cart = $_SESSION['cart'];
                         $quantity = $_SESSION['quantity'];
                         if (in_array($pro_code, $cart) == true) {
-                            print 'その商品はすでにカートに入っています。<br />';
-                            print '<a href="shop_list.php">商品一覧へ戻る</a>';
+                            print 'その商品はすでにカートに入っています。<br /><br />';
+                            print '<button><a href="shop_list.php">商品一覧へ戻る</a></button>';
                             exit();
                         }
                     }
@@ -77,7 +77,7 @@ if (isset($_SESSION['member_login']) == false) {
 
                 カートに追加しました。<br />
                 <br />
-                <a href="shop_list.php">商品一覧に戻る</a>
+                <button><a href="shop_list.php">商品一覧に戻る</a></button>
 
 
             </div>

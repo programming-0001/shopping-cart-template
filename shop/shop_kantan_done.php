@@ -204,7 +204,7 @@ if (isset($_SESSION['member_login']) == false) {
                 ?>
 
                 </br>
-                <a href="shop_list.php">商品画面へ</a>
+                <button><a href="shop_list.php">商品画面へ</a></button>
 
 
 

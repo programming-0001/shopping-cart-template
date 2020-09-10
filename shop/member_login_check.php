@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <head>
@@ -10,7 +10,6 @@
 <body>
     <div id="container">
         <div id="header" style="">
-            <!-- <h1><a href="http://www.67-cafe.com/" target="_blank"><img src="img/logo.png" alt="cafe67"></a></h1> -->
             <h1>青汁屋</h1>
         </div>
 
@@ -23,7 +22,7 @@
         </div>
 
         <div id="content">
-            <div id="content-inside" style="padding: 20px;">
+            <div id="content-inside" style="padding: 20px;"> -->
 
 
 
@@ -68,8 +67,8 @@
                     $rec = $stmt->fetch(PDO::FETCH_ASSOC);
                     //$stmtから1レコード取り出す
                     if ($rec == false) {
-                        print 'メールアドレスかパスワードが間違っています。<br />';
-                        print '<a href="member_login.html">戻る</a>';
+                        print 'メールアドレスかパスワードが間違っています。<br /><br />';
+                        print '<button><a href="member_login.html">戻る</a></button>';
                     } else {
                         session_start();
                         // 自動で合言葉を設定
@@ -87,7 +86,7 @@
                 ?>
 
 
-            </div>
+            <!-- </div>
         </div>
 
         <div id="footer">
@@ -97,4 +96,4 @@
     </div>
 
 
-</body>
+</body> -->

@@ -54,7 +54,7 @@
                 $okflg = true;
 
                 if ($onamae == '') {
-                    print 'お名前が入力されていません。<br/><br/>';
+                    print '<h3>お名前が入力されていません。</h3><br/><br/>';
                     $okflg = false;
                 } else {
                     print 'お名前<br/>';
@@ -66,7 +66,7 @@
                 if (preg_match('/^([a-zA-Z0-9])+([a-zA-Z0-9\._-])*@([a-zA-Z0-9_-])+([a-zA-Z0-9\._-]+)+$/', $email) == 0) {
                     //preg_match => 正なら１，誤なら０を返す
                     //perl互換の正規表現（regex）
-                    print 'メールアドレスを正確に入力してください。<br/><br/>';
+                    print '<h3>メールアドレスを正確に入力してください。</h3><br/><br/>';
                     $okflg = false;
                 } else {
                     print 'メールアドレス<br/>';
@@ -78,7 +78,7 @@
                     //もし半角数字じゃなかったら
                     //preg_match => 正なら１，誤なら０を返す
                     //perl互換の正規表現（regex）
-                    print '郵便番号は半角数字で入力してください。<br/><br/>';
+                    print '<h3>郵便番号は半角数字で入力してください。</h3><br/><br/>';
                     $okflg = false;
                 } else {
                     print '郵便番号<br/>';
@@ -89,12 +89,12 @@
                 }
 
                 if (preg_match('/^[0-9]+$/', $postal2) == 0) {
-                    print '郵便番号は半角数字で入力してください。<br/><br/>';
+                    print '<h3>郵便番号は半角数字で入力してください。</h3><br/><br/>';
                     $okflg = false;
                 }
 
                 if ($address == '') {
-                    print '住所が入力されていません。<br/><br/>';
+                    print '<h3>住所が入力されていません。</h3><br/><br/>';
                     $okflg = false;
                 } else {
                     print '住所<br/>';
@@ -104,7 +104,7 @@
 
 
                 if (preg_match('/^\d{2,5}-?\d{2,5}-?\d{4,5}$/', $tel) == 0) {
-                    print '電話番号は半角数字で入力してください。<br/><br/>';
+                    print '<h3>電話番号は半角数字で入力してください。</h3><br/><br/>';
                     $okflg = false;
                 } else {
                     print '電話番号<br/>';
@@ -114,12 +114,12 @@
 
                 if ($chumon == 'chumontouroku') {
                     if ($pass == '') {
-                        print 'パスワードが入力されていません。<br/><br/>';
+                        print '<h3>パスワードが入力されていません。</h3><br/><br/>';
                         $okflg = false;
                     }
 
                     if ($pass != $pass2) {
-                        print 'パスワードが一致しません。<br/><br/>';
+                        print '<h3>パスワードが一致しません。</h3><br/><br/>';
                         $okflg = false;
                     }
 

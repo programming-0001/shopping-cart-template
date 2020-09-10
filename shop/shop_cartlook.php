@@ -59,9 +59,11 @@ if (isset($_SESSION['member_login']) == false) {
                 }
 
                 if ($max == 0) {
+                    print '<div id="content-inside" style="padding: 20px;">';
                     print 'カートに商品が入っていません。<br />';
                     print '<br />';
-                    print '<a href="shop_list.php">商品一覧へ戻る</a>';
+                    print '<button><a href="shop_list.php">商品一覧へ戻る</a></button>';
+                    print '</div>';
                     exit();
                 }
 
@@ -142,11 +144,13 @@ if (isset($_SESSION['member_login']) == false) {
                 <input type="button" onclick="history.back()" value="戻る">
                 </form>
                 <br /><br /><br />
-                <a href="shop_form.html">ご購入手続きへ進む　>></a><br />
+                <h3><a href="shop_form.html">ご購入手続きへ進む　>></a></h3><br />
 
                 <?php
                 if (isset($_SESSION['member_login']) == true) {
-                    print '<a href="shop_kantan_check.php">会員かんたん注文へ進む　>></a><br /><br /><br />';
+                ?>
+                    <h3><a href="shop_kantan_check.php">会員かんたん注文へ進む　>></a></h3><br /><br /><br />
+                <?php
                 }
                 ?>
             </div>
