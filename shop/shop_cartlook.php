@@ -6,13 +6,11 @@ session_regenerate_id(true);
 if (isset($_SESSION['member_login']) == false) {
     print 'ようこそゲスト様　';
     print '<a href="member_login.html">会員ログイン</a><br />';
-    print '<br />';
 } else {
     print 'ようこそ';
     print $_SESSION['member_name'];
     print '様　';
-    print '<a href="member_logout.php">ログアウト</a><br />';
-    print '<br />';
+    print '<a href="member_logout.php" class="a">ログアウト</a><br />';
 }
 ?>
 
@@ -21,8 +19,9 @@ if (isset($_SESSION['member_login']) == false) {
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
     <title>サンプル</title>
-    <link rel="stylesheet" href="css/shop.css" media="all">
+    <link rel="stylesheet" href="css/shop.css" media="">
 </head>
 
 <body>
@@ -110,58 +109,60 @@ if (isset($_SESSION['member_login']) == false) {
 
             <div id="content-inside" style="padding: 20px;">
 
-                <table border="1">
-                    <tr>
-                        <td>商品</td>
-                        <td>商品画像</td>
-                        <td>価格</td>
-                        <td>数量</td>
-                        <td>小計</td>
-                        <td>削除</td>
-                    </tr>
+                <div class="table-scroll">
+                    <table border="1">
+                        <tr>
+                            <td>商品</td>
+                            <td>商品画像</td>
+                            <td>価格</td>
+                            <td>数量</td>
+                            <td>小計</td>
+                            <td>削除</td>
+                        </tr>
 
-                    <form method="post" action="quantity_change.php">
-                        <?php
-                        for ($i = 0; $i < $max; $i++) {
-                        ?>
-                            <tr>
-                                <td><?php print $pro_name[$i]; ?></td>
-                                <td><?php print $pro_image[$i]; ?></td>
-                                <td><?php print $pro_price[$i]; ?>円</td>
-                                <td><input type="text" name="quantity<?php print $i; ?>" value="<?php print $quantity[$i]; ?>"></td>
-                                <td><?php print $pro_price[$i] * $quantity[$i]; ?>円</td>
-                                <td><input type="checkbox" name="delete<?php print $i; ?>"></td>
-                            </tr>
-                        <?php
-                        }
-                        ?>
-                </table>
-                <br />
-                <input type="hidden" name="max" value="<?php print $max; ?>">
-                ※数量を変更する場合は、数字を変更した上で、下のボタンを押してください<br />
-                <input type="submit" value="数量変更">
-                <input type="submit" value="削除" align="right"><br /><br />
-                <input type="button" onclick="history.back()" value="戻る">
-                </form>
-                <br /><br /><br />
-                <h3><a href="shop_form.html">ご購入手続きへ進む　>></a></h3><br />
+                        <form method="post" action="quantity_change.php" style="width: 10%;">
+                            <?php
+                            for ($i = 0; $i < $max; $i++) {
+                            ?>
+                                <tr>
+                                    <td><?php print $pro_name[$i]; ?></td>
+                                    <td><?php print $pro_image[$i]; ?></td>
+                                    <td><?php print $pro_price[$i]; ?>円</td>
+                                    <td class="q"><input class="qq" type="text" name="quantity<?php print $i; ?>" value="<?php print $quantity[$i]; ?>"></td>
+                                    <td><?php print $pro_price[$i] * $quantity[$i]; ?>円</td>
+                                    <td><input type="checkbox" name="delete<?php print $i; ?>"></td>
+                                </tr>
+                            <?php
+                            }
+                            ?>
+                    </table>
+                </div>
+                    <br />
+                    <input type="hidden" name="max" value="<?php print $max; ?>">
+                    ※数量を変更する場合は、数字を変更した上で、下のボタンを押してください<br />
+                    <input type="submit" value="数量変更">
+                    <input type="submit" value="削除" align="right"><br /><br />
+                    <input type="button" onclick="history.back()" value="戻る">
+                    </form>
+                    <br /><br /><br />
+                    <h3><a href="shop_form.html">ご購入手続きへ進む　>></a></h3><br />
 
-                <?php
-                if (isset($_SESSION['member_login']) == true) {
-                ?>
-                    <h3><a href="shop_kantan_check.php">会員かんたん注文へ進む　>></a></h3><br /><br /><br />
-                <?php
-                }
-                ?>
+                    <?php
+                    if (isset($_SESSION['member_login']) == true) {
+                    ?>
+                        <h3><a href="shop_kantan_check.php">会員かんたん注文へ進む　>></a></h3><br /><br /><br />
+                    <?php
+                    }
+                    ?>
+                </div>
+
+            </div>
+
+            <div id="footer">
+                <p>Copyright © 2012 cafe67 All Rights Reserved.</p>
             </div>
 
         </div>
-
-        <div id="footer">
-            <p>Copyright © 2012 cafe67 All Rights Reserved.</p>
-        </div>
-
-    </div>
 </body>
 
 </html>

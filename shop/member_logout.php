@@ -41,7 +41,7 @@ if (isset($_COOKIE[session_name()]) == true) {
 
                 ログアウトしました。<br />
                 <br />
-                <a href="shop_list.php">商品一覧へ</a>
+                <button><a href="shop_list.php">商品一覧へ</a></button>
 
 
 

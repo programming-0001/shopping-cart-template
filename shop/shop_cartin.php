@@ -6,13 +6,11 @@ session_regenerate_id(true);
 if (isset($_SESSION['member_login']) == false) {
     print 'ようこそゲスト様　';
     print '<a href="member_login.html">会員ログイン</a><br />';
-    print '<br />';
 } else {
     print 'ようこそ';
     print $_SESSION['member_name'];
     print '様　';
     print '<a href="member_logout.php">ログアウト</a><br />';
-    print '<br />';
 }
 ?>
 
@@ -59,6 +57,8 @@ if (isset($_SESSION['member_login']) == false) {
                         if (in_array($pro_code, $cart) == true) {
                             print 'その商品はすでにカートに入っています。<br /><br />';
                             print '<button><a href="shop_list.php">商品一覧へ戻る</a></button>';
+                            print '&nbsp;&nbsp;&nbsp;';
+                            print '<button><a href="shop_cartlook.php">カートを見る</a></button>';
                             exit();
                         }
                     }
@@ -78,6 +78,8 @@ if (isset($_SESSION['member_login']) == false) {
                 カートに追加しました。<br />
                 <br />
                 <button><a href="shop_list.php">商品一覧に戻る</a></button>
+                &nbsp;
+                <button><a href="shop_cartlook.php">カートを見る</a></button>
 
 
             </div>
