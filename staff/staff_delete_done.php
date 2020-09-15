@@ -19,7 +19,7 @@ if (isset($_SESSION['login']) == false) {
 
 <head>
     <meta charset="UTF-8">
-    <title>サンプル</title>
+    <title>青汁屋</title>
 </head>
 
 <body>
